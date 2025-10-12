@@ -44,3 +44,26 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 ![kali image](imgs\metapkg.png)
 ![kali image](imgs\Wifi_tool.png)
 
+> ### NB:
+> - Important to create a new kali user with no-super mode as `sudo adduser stnd` and switch with `su stnd`  
+>  - to prevent running X applications or a graphical environment as the root user without proper X authority setup; it throws > the error *_"xauth: file /root/.Xauthority does not exist"_*  
+>  - add the stnd to sudo group by `sudo usermod -aG sudo stnd` in root user mode.
+>  - create .Xauthority file as `touch /home/stnd/.Xauthority` and `touch ~/.Xresources` if you get X server configurations file error while loading xrdb.
+
+
+
+4. Install a **vncserver**(a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"`
+
+5. Set a password for remote view and one for read only after running `vncserver`
+
+6. I had to install a GUI DE (xfce)
+
+check if dislplay manager is set and enabled `systemctl get-default` and install either *lightdm* or *gdm3* and finally `systemctl enable` & also `start gdm3`
+
+- `apt install kali-desktop-xfce`
+
+7. .....tbc
+
+## Other Documentations of help
+
+i. [Kali: Packages and Binaries](https://www.kali.org/tools/kali-meta/)
