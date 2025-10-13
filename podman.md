@@ -18,7 +18,7 @@ Head over to [kali](https://www.kali.org/get-kali/#kali-containers) to get the i
 Mine has, so, onto the next...
 
 - `podman pull kali-rolling` # to get kali image
-- `podman run --tty --interactive kali-rolling` # to run the container
+- `podman run -it -p 5901:5901 kali-rolling` as opposed to `podman run --tty --interactive kali-rolling` to run the container and publish port 5901
 
 > NB: "the images do not come with the “default” metapackage." and "I will need to apt update && apt -y install (your metapackage)." to install my [metapackage](https://www.kali.org/docs/general-use/metapackages/).  
 NB: If exited, resume by running `podman ps -a` to get image ID, then `podman start 'ID'` and finally `podman attach 'ID'`
@@ -44,21 +44,27 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 ![kali image](imgs\metapkg.png)
 ![kali image](imgs\Wifi_tool.png)
 
-> ### NB:
-> - Important to create a new kali user with no-super mode as `sudo adduser stnd` and switch with `su stnd`  
->  - to prevent running X applications or a graphical environment as the root user without proper X authority setup; it throws > the error *_"xauth: file /root/.Xauthority does not exist"_*  
+> #### NB:
+> - Important to create a new kali user with no-root privileges as `sudo adduser stnd` and switch with `su stnd` so as to prevent running X applications or a graphical environment as the root user without proper X authority setup; it throws > the error *_"xauth: file /root/.Xauthority does not exist"_*
 >  - add the stnd to sudo group by `sudo usermod -aG sudo stnd` in root user mode.
->  - create .Xauthority file as `touch /home/stnd/.Xauthority` and `touch ~/.Xresources` if you get X server configurations file error while loading xrdb.
+>  - create both the .Xauthority file with `touch /home/stnd/.Xauthority` and `touch /home/stnd/.Xresources` if you get X server configurations file error while loading xrdb.
 
-
-
-4. Install a **vncserver**(a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"`
+4. - Install a **vncserver**(a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"` in my case `export USER="stnd"`
+   - set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
+   - ```
+          :display -The display number to use. If omitted, the next free display number is used.
+          -geometry widthxheight - Set desktop width and height.
+          -depth depth - Set the colour depth of the visual to provide, in bits per pixel. Must be a value between 8 and 32.
+     ```
 
 5. Set a password for remote view and one for read only after running `vncserver`
 
 6. I had to install a GUI DE (xfce)
 
-check if dislplay manager is set and enabled `systemctl get-default` and install either *lightdm* or *gdm3* and finally `systemctl enable` & also `start gdm3`
+> #### NB:
+> ~check if dislplay manager is set and enabled `systemctl get-default` and install either *lightdm* or *gdm3* and finally `systemctl enable` & also `start gdm3`~
+above is not advisable since the display managers (gdm3/lightdm) expect a physical or virtual TTY and full system init and they don’t have systemd or [hardware-level display access](https://www.kali.org/get-kali/#kali-containers) which can block or crash thereby preventing VNC’s Xvnc(its own X session) from starting properly.
+
 
 - `apt install kali-desktop-xfce`
 
@@ -67,3 +73,4 @@ check if dislplay manager is set and enabled `systemctl get-default` and install
 ## Other Documentations of help
 
 i. [Kali: Packages and Binaries](https://www.kali.org/tools/kali-meta/)
+ii. [VNC Server Doc](https://www.commandlinux.com/man-page/man1/vncserver.1.html)
