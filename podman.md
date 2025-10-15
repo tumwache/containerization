@@ -31,7 +31,7 @@ NB: If exited, resume by running `podman ps -a` to get image ID, then `podman st
 
 - `sudo apt update` && `sudo apt full-upgrade -y`
 
-![kali image](imgs\kali_1.png)
+![kali image](imgs/kali_1.png)
 
 3. Use kali-tweaks to install metapackage groups.
 
@@ -41,8 +41,8 @@ NB: If exited, resume by running `podman ps -a` to get image ID, then `podman st
 
 Proceed as follows; I chose 802.11 for Wi-Fi
 
-![kali image](imgs\metapkg.png)
-![kali image](imgs\Wifi_tool.png)
+![kali image](imgs/metapkg.png)
+![kali image](imgs/Wifi_tool.png)
 
 > #### NB:
 > - Important to create a new kali user with no-root privileges as `sudo adduser stnd` and switch with `su stnd` so as to prevent running X applications or a graphical environment as the root user without proper X authority setup; it throws > the error *_"xauth: file /root/.Xauthority does not exist"_*
