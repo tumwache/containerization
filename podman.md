@@ -72,5 +72,5 @@ above is not advisable since the display managers (gdm3/lightdm) expect a physic
 
 ## Other Documentations of help
 
-i. [Kali: Packages and Binaries](https://www.kali.org/tools/kali-meta/)
+i. [Kali: Packages and Binaries](https://www.kali.org/tools/kali-meta/)  
 ii. [VNC Server Doc](https://www.commandlinux.com/man-page/man1/vncserver.1.html)
