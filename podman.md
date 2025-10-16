@@ -1,15 +1,18 @@
 # Podman
 
-## Commands I found useful (personally)
+## A. Commands I found useful (personally)
 
    `podman rmi ID` this command is used to remove one or more specific images from local storage.  
    `podman rmi --all or (-a)`  removes all images in local storage  
    `podman prune` cleaning up unused Podman resources  
    `podman images` List all local images   
+   `podman ps -a` list running containers on the local machine  
+   `podman ps` list the containers on the local system  
+   `podman attach [options] <container>` attach to a running container and view its output or control it  
 
 
 
-## Trying out kali linux on podman from start to end
+## B. Trying out kali linux on podman from start to end
 
 [Podman](https://docs.podman.io/en/latest/) defined as a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. The containers can be run by root with netavark default n/w which allows a container to have a routable IP address or by a non-privileged user using default network mode of slirp4netns.
 
