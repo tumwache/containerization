@@ -1,6 +1,6 @@
 # Podman
 
-## A. Commands I found useful (personally)
+### A. Commands I found useful (personally)
 
    `podman rmi ID` this command is used to remove one or more specific images from local storage.  
    `podman rmi --all or (-a)`  removes all images in local storage  
@@ -12,11 +12,11 @@
 
 
 
-## B. Trying out kali linux on podman from start to end
+### B. Trying out kali linux on podman from start to end
 
 [Podman](https://docs.podman.io/en/latest/) defined as a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. The containers can be run by root with netavark default n/w which allows a container to have a routable IP address or by a non-privileged user using default network mode of slirp4netns.
 
-### 1. installing podman
+#### 1. installing podman
 
 To start of, I'm running Debian GNU/Linux 13 (trixie) x86_64 on bash shell 5.2.37 and GNOME 48.4 as my DE.
 
@@ -25,7 +25,7 @@ To start of, I'm running Debian GNU/Linux 13 (trixie) x86_64 on bash shell 5.2.3
 - `podman --version` # confirm installation
 
 
-### 2. installing kali-linux
+#### 2. installing kali-linux
 
 Head over to [kali](https://www.kali.org/get-kali/#kali-containers) to get the image in shortname, confirm this by checking the **shortnames.conf**  in */etc/containers/registries.conf.d/shortnames.conf*
 
@@ -85,7 +85,7 @@ above is not advisable since the display managers (gdm3/lightdm) expect a physic
 
 7. .....tbc
 
-## Other Documentations of help
+#### Other Documentations of help
 
 i. [Kali: Packages and Binaries](https://www.kali.org/tools/kali-meta/)  
 ii. [VNC Server Doc](https://www.commandlinux.com/man-page/man1/vncserver.1.html)
