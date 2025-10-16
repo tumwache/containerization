@@ -1,3 +1,14 @@
+# Podman
+
+## Commands I found useful (personally)
+
+   `podman rmi ID` this command is used to remove one or more specific images from local storage.  
+   `podman rmi --all or (-a)`  removes all images in local storage  
+   `podman prune` cleaning up unused Podman resources  
+   `podman images` List all local images   
+
+
+
 ## Trying out kali linux on podman from start to end
 
 [Podman](https://docs.podman.io/en/latest/) defined as a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. The containers can be run by root with netavark default n/w which allows a container to have a routable IP address or by a non-privileged user using default network mode of slirp4netns.
@@ -29,6 +40,7 @@ NB: If exited, resume by running `podman ps -a` to get image ID, then `podman st
 
 2. then update as recomended.
 
+- `apt update && apt -y install kali-linux-headless` #since we have a [minimal installation](https://www.kali.org/docs/troubleshooting/common-minimum-setup/) 
 - `sudo apt update` && `sudo apt full-upgrade -y`
 
 ![kali image](imgs/kali_1.png)
