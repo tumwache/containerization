@@ -80,7 +80,9 @@ Proceed as follows; I chose 802.11 for Wi-Fi
      ```
 
 7. Set a password for remote view with `vncpasswd` and/or one for read only then  run `vncserver`
-8. set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
+8. Set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
+9. Oprn Remmina and choose VNC, put `localhost:5901` and key your password
+10. Kill the session whe done with `vncserver -kill :1`
 
 
 #### Other Documentations of help
