@@ -63,27 +63,25 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 > - Important to create a new kali user with no-root privileges as `sudo adduser stnd` and switch with `su stnd` so as to prevent running X applications or a graphical environment as the root user without proper X authority setup; it throws > the error *_"xauth: file /root/.Xauthority does not exist"_*
 >  - add the stnd to sudo group by `sudo usermod -aG sudo stnd` in root user mode.
 >  - create both the .Xauthority file with `touch /home/stnd/.Xauthority` and `touch /home/stnd/.Xresources` if you get X server configurations file error while loading xrdb.
+>  - `ls -la ~ | grep X` confirm the files have been added.
 
-4. - Install a **vncserver**(a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"` in my case `export USER="stnd"`
-   - set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
+4. install xfce desktop as it's light `sudo apt install -y kali-desktop-xfce`
+   > #### NB:
+   > ~check if dislplay manager is set and enabled `systemctl get-default` and install either *lightdm* or *gdm3* and finally `systemctl enable` & also    `start gdm3`~
+   above is not advisable since the display managers (gdm3/lightdm) expect a physical or virtual TTY and full system init and they don’t have systemd or    [hardware-level display access](https://www.kali.org/get-kali/#kali-containers) which can block or crash thereby preventing VNC’s Xvnc(its own X         session) from starting properly.
+
+
+6. - Install a **vnc server** with `sudo apt install tightvncserver` (a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"` in my case `export USER="stnd"`
+
    - ```
           :display -The display number to use. If omitted, the next free display number is used.
           -geometry widthxheight - Set desktop width and height.
           -depth depth - Set the colour depth of the visual to provide, in bits per pixel. Must be a value between 8 and 32.
      ```
 
-5. Set a password for remote view and one for read only after running `vncserver`
+7. Set a password for remote view with `vncpasswd` and/or one for read only then  run `vncserver`
+8. set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
 
-6. I had to install a GUI DE (xfce)
-
-> #### NB:
-> ~check if dislplay manager is set and enabled `systemctl get-default` and install either *lightdm* or *gdm3* and finally `systemctl enable` & also `start gdm3`~
-above is not advisable since the display managers (gdm3/lightdm) expect a physical or virtual TTY and full system init and they don’t have systemd or [hardware-level display access](https://www.kali.org/get-kali/#kali-containers) which can block or crash thereby preventing VNC’s Xvnc(its own X session) from starting properly.
-
-
-- `apt install kali-desktop-xfce`
-
-7. .....tbc
 
 #### Other Documentations of help
 
