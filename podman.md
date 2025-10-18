@@ -84,6 +84,8 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 9. Oprn Remmina and choose VNC, put `localhost:5901` and key your password
 10. Kill the session whe done with `vncserver -kill :1`
 
+![final image](imgs/final.png)
+
 
 #### Other Documentations of help
 
