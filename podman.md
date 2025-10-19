@@ -81,12 +81,17 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 
 6. Set a password for remote view with `vncpasswd` and/or one for read only then  run `vncserver`
 7. Set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
-8. Open Remmina and choose VNC, put `localhost:5901` and key your password
+8. - Secure VNC with SSH tunneling to connect across untrusted networks with `ssh -L 5901:localhost:5901 user@container-host
+` or `ssh -L 5901:localhost:5901 user@<host_ip>`
+   - e.g., if user (use whoami) is stnd and ip is 192.168.0.1 `ssh -L 5901:localhost:5901 stnd@192.168.0.1`
+
+10. Open Remmina and choose VNC, put `localhost:5901` or `192.168.0.1:5901` if secured with ssh and key your password
+
 > #### NB:
    > To view on a windows based laptop, download TightVNC from this [link](https://www.tightvnc.com/download/2.8.85/tightvnc-2.8.85-gpl-setup-64bit.msi).  
    > Get host IP by `ip addr show`  
    > Install the **.msi** and put the ip address with the port number, if :1 put 590**1**
-9. Kill the session whe done with `vncserver -kill :1`
+10. Kill the session whe done with `vncserver -kill :1`
 
 ![final image](imgs/final.png)
 
