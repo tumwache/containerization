@@ -71,7 +71,7 @@ Proceed as follows; I chose 802.11 for Wi-Fi
    above is not advisable since the display managers (gdm3/lightdm) expect a physical or virtual TTY and full system init and they don’t have systemd or    [hardware-level display access](https://www.kali.org/get-kali/#kali-containers) which can block or crash thereby preventing VNC’s Xvnc(its own X         session) from starting properly.
 
 
-6. - Install a **vnc server** with `sudo apt install tightvncserver` (a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"` in my case `export USER="stnd"`
+5. - Install a **vnc server** with `sudo apt install tightvncserver` (a virtual Network Computing cross-platform screen sharing system created to remotely control another computer) and `export USER="yourusername"` in my case `export USER="stnd"`
 
    - ```
           :display -The display number to use. If omitted, the next free display number is used.
@@ -79,10 +79,14 @@ Proceed as follows; I chose 802.11 for Wi-Fi
           -depth depth - Set the colour depth of the visual to provide, in bits per pixel. Must be a value between 8 and 32.
      ```
 
-7. Set a password for remote view with `vncpasswd` and/or one for read only then  run `vncserver`
-8. Set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
-9. Oprn Remmina and choose VNC, put `localhost:5901` and key your password
-10. Kill the session whe done with `vncserver -kill :1`
+6. Set a password for remote view with `vncpasswd` and/or one for read only then  run `vncserver`
+7. Set `vncserver :1 -geometry 1280x800 -depth 24` for display on the VNC Client (am using [Remmina](https://remmina.org/))
+8. Open Remmina and choose VNC, put `localhost:5901` and key your password
+> #### NB:
+   > To view on a windows based laptop, download TightVNC from this [link](https://www.tightvnc.com/download/2.8.85/tightvnc-2.8.85-gpl-setup-64bit.msi).  
+   > Get host IP by `ip addr show`  
+   > Install the **.msi** and put the ip address with the port number, if :1 put 590**1**
+9. Kill the session whe done with `vncserver -kill :1`
 
 ![final image](imgs/final.png)
 
