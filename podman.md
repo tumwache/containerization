@@ -85,13 +85,13 @@ Proceed as follows; I chose 802.11 for Wi-Fi
 ` or `ssh -L 5901:localhost:5901 user@<host_ip>`
    - e.g., if user (use whoami) is stnd and ip is 192.168.0.1 `ssh -L 5901:localhost:5901 stnd@192.168.0.1`
 
-10. Open Remmina and choose VNC, put `localhost:5901` or `192.168.0.1:5901` if secured with ssh and key your password
+9. Open Remmina and choose VNC, put `localhost:5901` or `192.168.0.1:5901` if secured with ssh and key your password
 
 > #### NB:
    > To view on a windows based laptop, download TightVNC from this [link](https://www.tightvnc.com/download/2.8.85/tightvnc-2.8.85-gpl-setup-64bit.msi).  
    > Get host IP by `ip addr show`  
    > Install the **.msi** and put the ip address with the port number, if :1 put 590**1**
-10. Kill the session whe done with `vncserver -kill :1`
+10. Kill the session whe done with `vncserver -kill :1`; to check all opened sessions use `vncserver -list` or `ps -ef | grep (Xvnc/Xtightvnc)` if in minimal container as I am in.
 
 ![final image](imgs/final.png)
 
